@@ -1,0 +1,46 @@
+// basic idea, O(n^2) sadly
+// 1. loop through t
+// 2. loop through s, if match then go next
+
+function isSubsequence(s: string, t: string): boolean {
+	// would i need a return false in here if it reaches first mismatch?
+	// many ways to do it
+	// can probably do recursion on this too, probably better?
+	let i = 0
+	for (let j = 0; j < t.length; j++) {
+		if (i >= s.length) break // forgive this break statement, i'll learn
+		if (s[i] === t[j]) {
+			i++
+		}
+	}
+
+	if (i < s.length) return false
+	return true
+}
+
+// the many s case (array of s)
+// probably how you'd do it?
+// function isSubsequence(s: string[], t: string): boolean[] {
+//     // would i need a return false in here if it reaches first mismatch?
+//     // many ways to do it
+//     // can probably do recursion on this too, probably better?
+//     const result : boolean[] = new Array(s.length)
+//     for (let i = 0; i < s.length; i++) {
+//         let k = 0
+//         const newString = s[i]
+//         for (let j = 0; j < t.length; j++) {
+//             if (k >= newString.length) break
+//             if (newString[k] === t[j]) {
+//                 k++
+//             }
+//         }
+
+//         if (k < newString.length) {
+//             result[i] = false
+//         } else {
+//             result[i] = true
+//         }
+//     }
+
+//     return result
+// };
